@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Fondo gradiente horizontal azul claro a azul */
+    background: #8aedf6; /* Old browsers */
+    background: -moz-linear-gradient(left, #8aedf6 0%, #60a2f5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #8aedf6 0%,#60a2f5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #8aedf6 0%,#60a2f5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8aedf6', endColorstr='#60a2f5',GradientType=1 ); /* IE6-9 */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 32px;
+    color: #333;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+    cursor: pointer;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    filter: brightness(0.7) sepia(0.2);
+    z-index: 1;
+}
+
+.gallery-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(88, 154, 184);
+    color: rgb(255, 255, 255);
+    padding: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.gallery-item:hover .gallery-info {
+    opacity: 1;
+}
+
+@media (min-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
